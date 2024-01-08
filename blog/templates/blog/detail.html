@@ -1,5 +1,11 @@
-<h1>{{ blog.title_blog }}</h1>
+{% extends 'portfolio/base.html' %}
 
-{{ blog.description_blog|safe }}
+{% block content %}
 
-<p><h5>{{ blog.date_blog|date:'d.m.Y' }}</h5>
+    <h1>{{ blog.title_blog }}</h1>
+
+    {{ blog.description_blog|safe }}
+
+    <p><h5>{{ blog.date_blog|date:'d.m.Y' }}</h5>
+
+{% endblock %}

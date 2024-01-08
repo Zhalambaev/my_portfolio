@@ -1,15 +1,19 @@
-<h1>Это мой блог</h1>
+{% extends 'portfolio/base.html' %}
 
-<h2>Постов на этой странице: {{ blog_projects.count }} </h2>
+{% block content %}
 
-{% for blog_project in blog_projects %}
+  <h1>Это мой блог</h1>
 
-<a href="{% url 'blog:detail' blog_project.id %}"><h2>{{ blog_project.title_blog }}</h2></a>
-<p>{{ blog_project.description_blog|striptags|truncatechars:100 }}</p>
-<h5>{{ blog_project.date_blog|date:'d.m.Y' }}</h5>
-{% if blog_project.url_blog %}
-<br><br><a href="{{ blog_project.url_blog }}">Это ссылка</a>
-{% endif %}
+  <h2>Постов на этой странице: {{ blog_projects.count }} </h2>
 
+  {% for blog_project in blog_projects %}
 
-{% endfor %}
+  <a href="{% url 'blog:detail' blog_project.id %}"><h2>{{ blog_project.title_blog }}</h2></a>
+  <p>{{ blog_project.description_blog|striptags|truncatechars:100 }}</p>
+  <h5>{{ blog_project.date_blog|date:'d.m.Y' }}</h5>
+  {% if blog_project.url_blog %}
+  <br><br><a href="{{ blog_project.url_blog }}">Это ссылка</a>
+  {% endif %}
+  {% endfor %}
+
+{% endblock %}
